@@ -21,5 +21,15 @@ namespace HostManager
         public String Remark  {get; set; }
 
         public List<Tag> Tags { get; set; }
+
+        public Host()
+        {
+            this.Id = -1;
+            this.IP = this.Name = this.User = this.Passwd = this.RootPasswd = this.OS = this.Remark = "";
+            this.Port = 22;
+            this.CPU = this.Memory = this.Disk = 0;
+            this.Tags = new List<Tag>();
+        }
+
     }
 }

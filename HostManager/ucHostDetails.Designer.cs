@@ -96,7 +96,7 @@
             this.tbDisk.Location = new System.Drawing.Point(81, 150);
             this.tbDisk.Name = "tbDisk";
             this.tbDisk.Size = new System.Drawing.Size(113, 21);
-            this.tbDisk.TabIndex = 66;
+            this.tbDisk.TabIndex = 9;
             // 
             // label12
             // 
@@ -112,7 +112,7 @@
             this.tbMemory.Location = new System.Drawing.Point(300, 126);
             this.tbMemory.Name = "tbMemory";
             this.tbMemory.Size = new System.Drawing.Size(108, 21);
-            this.tbMemory.TabIndex = 64;
+            this.tbMemory.TabIndex = 8;
             // 
             // label11
             // 
@@ -128,7 +128,7 @@
             this.tbCPU.Location = new System.Drawing.Point(81, 123);
             this.tbCPU.Name = "tbCPU";
             this.tbCPU.Size = new System.Drawing.Size(113, 21);
-            this.tbCPU.TabIndex = 62;
+            this.tbCPU.TabIndex = 7;
             // 
             // label10
             // 
@@ -144,7 +144,7 @@
             this.rtbRemark.Location = new System.Drawing.Point(81, 191);
             this.rtbRemark.Name = "rtbRemark";
             this.rtbRemark.Size = new System.Drawing.Size(360, 106);
-            this.rtbRemark.TabIndex = 60;
+            this.rtbRemark.TabIndex = 10;
             this.rtbRemark.Text = "";
             // 
             // label9
@@ -161,7 +161,7 @@
             this.tbRootPasswd.Location = new System.Drawing.Point(81, 96);
             this.tbRootPasswd.Name = "tbRootPasswd";
             this.tbRootPasswd.Size = new System.Drawing.Size(141, 21);
-            this.tbRootPasswd.TabIndex = 58;
+            this.tbRootPasswd.TabIndex = 5;
             // 
             // label8
             // 
@@ -177,7 +177,7 @@
             this.tbName.Location = new System.Drawing.Point(81, 15);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(141, 21);
-            this.tbName.TabIndex = 56;
+            this.tbName.TabIndex = 0;
             // 
             // label7
             // 
@@ -194,7 +194,7 @@
             this.cmbTag8.Location = new System.Drawing.Point(320, 332);
             this.cmbTag8.Name = "cmbTag8";
             this.cmbTag8.Size = new System.Drawing.Size(73, 20);
-            this.cmbTag8.TabIndex = 54;
+            this.cmbTag8.TabIndex = 18;
             // 
             // cmbTag6
             // 
@@ -202,7 +202,7 @@
             this.cmbTag6.Location = new System.Drawing.Point(160, 332);
             this.cmbTag6.Name = "cmbTag6";
             this.cmbTag6.Size = new System.Drawing.Size(73, 20);
-            this.cmbTag6.TabIndex = 53;
+            this.cmbTag6.TabIndex = 16;
             // 
             // cmbTag4
             // 
@@ -210,7 +210,7 @@
             this.cmbTag4.Location = new System.Drawing.Point(320, 306);
             this.cmbTag4.Name = "cmbTag4";
             this.cmbTag4.Size = new System.Drawing.Size(73, 20);
-            this.cmbTag4.TabIndex = 52;
+            this.cmbTag4.TabIndex = 14;
             // 
             // cmbTag2
             // 
@@ -218,7 +218,7 @@
             this.cmbTag2.Location = new System.Drawing.Point(160, 306);
             this.cmbTag2.Name = "cmbTag2";
             this.cmbTag2.Size = new System.Drawing.Size(73, 20);
-            this.cmbTag2.TabIndex = 51;
+            this.cmbTag2.TabIndex = 12;
             // 
             // cmbTag7
             // 
@@ -226,7 +226,7 @@
             this.cmbTag7.Location = new System.Drawing.Point(241, 332);
             this.cmbTag7.Name = "cmbTag7";
             this.cmbTag7.Size = new System.Drawing.Size(73, 20);
-            this.cmbTag7.TabIndex = 50;
+            this.cmbTag7.TabIndex = 17;
             // 
             // cmbTag5
             // 
@@ -234,7 +234,7 @@
             this.cmbTag5.Location = new System.Drawing.Point(81, 332);
             this.cmbTag5.Name = "cmbTag5";
             this.cmbTag5.Size = new System.Drawing.Size(73, 20);
-            this.cmbTag5.TabIndex = 49;
+            this.cmbTag5.TabIndex = 15;
             // 
             // cmbTag3
             // 
@@ -242,7 +242,7 @@
             this.cmbTag3.Location = new System.Drawing.Point(241, 306);
             this.cmbTag3.Name = "cmbTag3";
             this.cmbTag3.Size = new System.Drawing.Size(73, 20);
-            this.cmbTag3.TabIndex = 48;
+            this.cmbTag3.TabIndex = 13;
             // 
             // label6
             // 
@@ -268,14 +268,14 @@
             this.cmbOS.Location = new System.Drawing.Point(300, 96);
             this.cmbOS.Name = "cmbOS";
             this.cmbOS.Size = new System.Drawing.Size(141, 20);
-            this.cmbOS.TabIndex = 45;
+            this.cmbOS.TabIndex = 6;
             // 
             // tbPasswd
             // 
             this.tbPasswd.Location = new System.Drawing.Point(300, 69);
             this.tbPasswd.Name = "tbPasswd";
             this.tbPasswd.Size = new System.Drawing.Size(141, 21);
-            this.tbPasswd.TabIndex = 44;
+            this.tbPasswd.TabIndex = 4;
             // 
             // label4
             // 
@@ -291,7 +291,7 @@
             this.tbUser.Location = new System.Drawing.Point(81, 69);
             this.tbUser.Name = "tbUser";
             this.tbUser.Size = new System.Drawing.Size(141, 21);
-            this.tbUser.TabIndex = 42;
+            this.tbUser.TabIndex = 3;
             // 
             // label3
             // 
@@ -307,7 +307,7 @@
             this.tbPort.Location = new System.Drawing.Point(300, 42);
             this.tbPort.Name = "tbPort";
             this.tbPort.Size = new System.Drawing.Size(141, 21);
-            this.tbPort.TabIndex = 40;
+            this.tbPort.TabIndex = 2;
             // 
             // label2
             // 
@@ -324,14 +324,14 @@
             this.cmbTag1.Location = new System.Drawing.Point(81, 306);
             this.cmbTag1.Name = "cmbTag1";
             this.cmbTag1.Size = new System.Drawing.Size(73, 20);
-            this.cmbTag1.TabIndex = 38;
+            this.cmbTag1.TabIndex = 11;
             // 
             // tbIP
             // 
             this.tbIP.Location = new System.Drawing.Point(81, 42);
             this.tbIP.Name = "tbIP";
             this.tbIP.Size = new System.Drawing.Size(141, 21);
-            this.tbIP.TabIndex = 37;
+            this.tbIP.TabIndex = 1;
             // 
             // label1
             // 

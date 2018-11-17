@@ -33,7 +33,7 @@ namespace HostManager.service
             m_HostTagRepo.Save(HostTagList);
         }
 
-        public void EditHost(int id,Host newHost)
+        public void UpdateHost(int id,Host newHost)
         {
             //update host
             m_HostRepo.Update(id,newHost);

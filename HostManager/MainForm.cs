@@ -26,6 +26,8 @@ namespace HostManager
 
         void Init()
         {
+            this.tvHost.HideSelection = this.tvTag.HideSelection = false;
+            this.StartPosition = FormStartPosition.CenterScreen;
             m_HostList = m_HostService.GetAllHosts();
             //init host tree
             InitHostTree(m_HostList);
@@ -34,6 +36,58 @@ namespace HostManager
 
             //init details panel
             InitDetailsPanel();
+
+            //init cms
+            InitCmsStrip();
+        }
+
+        void UpdateData()
+        {
+            m_HostList = m_HostService.GetAllHosts();
+            UpdateHostTree(m_HostList);
+            UpdateTagTree(m_HostList);
+        }
+
+        void InitCmsStrip()
+        {
+            this.cmsHost.ItemClicked += new ToolStripItemClickedEventHandler(cmsHost_ItemClicked);
+        }
+
+        void cmsHost_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            switch (e.ClickedItem.Name.ToLower())
+            {
+                case "tsminew":
+                    NewHost();
+                    break;
+                case "tsmidelete":
+                    DeleteHost();
+                    break;
+                case "tsmirefresh":
+                    UpdateData();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        void NewHost()
+        {
+            NewHostForm nhf = new NewHostForm();
+            if (nhf.ShowDialog() == DialogResult.OK)
+            {
+                m_HostService.AddHost(nhf.GetHost());
+                UpdateData();
+            }
+        }
+
+        void DeleteHost()
+        {
+            if (MessageBox.Show("删除 Host", "警告", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+            {
+                m_HostService.RemoveHost(m_CurrentHost.Id);
+                UpdateData();
+            }
         }
 
         void InitDetailsPanel()
@@ -46,13 +100,20 @@ namespace HostManager
             if (m_CurrentHost != null)
             {
                 Host host = ucHostDetails1.GetHost();
-                m_HostService.EditHost(m_CurrentHost.Id, host);
+                m_HostService.UpdateHost(m_CurrentHost.Id, host);
             }
         }
 
         void InitHostTree(List<Host> hostList)
         {
+            tvHost.ContextMenuStrip = this.cmsHost;
             tvHost.AfterSelect += new TreeViewEventHandler(tvHost_AfterSelect);
+
+            UpdateHostTree(hostList);
+        }
+
+        void UpdateHostTree(List<Host> hostList)
+        {
             tvHost.Nodes.Clear();
             TreeNode RootNode = new TreeNode("主机");
 
@@ -72,7 +133,14 @@ namespace HostManager
 
         void InitTagTree(List<Host> hostList)
         {
+            tvTag.ContextMenuStrip = this.cmsHost;
             tvTag.AfterSelect += new TreeViewEventHandler(tvTag_AfterSelect);
+
+            UpdateTagTree(hostList);
+        }
+
+        void UpdateTagTree(List<Host> hostList)
+        {
             tvTag.Nodes.Clear();
             TreeNode RootNode = new TreeNode("主机");
 
@@ -83,8 +151,16 @@ namespace HostManager
                 DictTagHost[tag.Name] = new List<Host>();
             }
 
+            //add os
+            List<String> OSList = hostList.Select(x => x.OS).Distinct(StringComparer.CurrentCultureIgnoreCase).ToList();
+            foreach (String os in OSList)
+            {
+                DictTagHost[os.ToLower()] = new List<Host>();
+            }
+
             foreach (Host h in hostList)
             {
+                DictTagHost[h.OS.ToLower()].Add(h);
                 foreach (Tag tag in h.Tags)
                 {
                     DictTagHost[tag.Name].Add(h);
@@ -97,7 +173,6 @@ namespace HostManager
                 TreeNode TagTn = new TreeNode();
                 TagTn.Text = kv.Key;
                 TagTn.Name = kv.Key;
-
 
                 kv.Value.Sort(new HostManager.dao.HostRepository.IPComparer()); ;
 
@@ -113,22 +188,22 @@ namespace HostManager
                 RootNode.Nodes.Add(TagTn);
             }
 
-            RootNode.ExpandAll();
+            RootNode.Expand();
 
             tvTag.Nodes.Add(RootNode);
         }
 
         void tvHost_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            OnHostNodeChange(e.Node);
+            OnHostNodeChanged(e.Node);
         }
 
         void tvTag_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            OnHostNodeChange(e.Node);
+            OnHostNodeChanged(e.Node);
         }
 
-        void OnHostNodeChange(TreeNode tn)
+        void OnHostNodeChanged(TreeNode tn)
         {
             m_CurrentHost = null;
             if (tn.Nodes == null || tn.Nodes.Count == 0)
@@ -139,5 +214,10 @@ namespace HostManager
             ucHostDetails1.UpdateData(m_CurrentHost, m_TagService.GetAllTags());
         }
 
+        void NotifyMsg(string msg)
+        {
+            msg = msg == null ? "就绪" : msg;
+            tsslStatus.Text = msg;
+        }
     }
 }

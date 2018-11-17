@@ -70,7 +70,7 @@ namespace HostManager
             for (int i = 0; i < m_CmbList.Count; i++)
             {
                 ComboBox cmb = m_CmbList[i];
-                string tagName = Convert.ToString(cmb.SelectedItem);
+                string tagName = Convert.ToString(cmb.Text);
                 if (tagName != null && tagName.Trim().Length != 0)
                 {
                     currentTags.Add(tagName);
@@ -101,6 +101,7 @@ namespace HostManager
         {
             m_OSList = new List<string>() { "CentOS", "Ubuntu" };
             m_CmbList = new List<ComboBox>() { cmbTag1, cmbTag2, cmbTag3, cmbTag4, cmbTag5, cmbTag6, cmbTag7, cmbTag8 };
+            ClearData();
         }
 
         void ClearData()
@@ -110,6 +111,7 @@ namespace HostManager
 
             cmbOS.Items.Clear();
             cmbOS.Items.AddRange(m_OSList.ToArray());
+            cmbOS.Text = "";
 
             foreach (ComboBox cmb in m_CmbList)
             {
@@ -139,6 +141,10 @@ namespace HostManager
 
         void ReadData()
         {
+            if (m_Host==null)
+            {
+                m_Host = new Host();
+            }
             m_Host.CPU = Convert.ToInt32(tbCPU.Text);
             m_Host.Disk = Convert.ToInt32(tbDisk.Text);
             m_Host.IP = tbIP.Text;

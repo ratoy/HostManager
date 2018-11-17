@@ -275,7 +275,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "MainForm";
-            this.Text = "Host管理";
+            this.Text = "主机管理";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.cmsHost.ResumeLayout(false);

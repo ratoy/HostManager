@@ -33,9 +33,9 @@
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("主机");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("主机");
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.tsbNew = new System.Windows.Forms.ToolStripButton();
+            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
+            this.tsbRefresh = new System.Windows.Forms.ToolStripButton();
             this.cmsHost = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiNew = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,11 +48,11 @@
             this.tvTag = new System.Windows.Forms.TreeView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.ucHostDetails1 = new HostManager.ucHostDetails();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnHostApply = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tsslStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ucHostDetails1 = new HostManager.ucHostDetails();
             this.toolStrip1.SuspendLayout();
             this.cmsHost.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -68,41 +68,41 @@
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3});
+            this.tsbNew,
+            this.tsbDelete,
+            this.tsbRefresh});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(642, 31);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // tsbNew
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(28, 28);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.tsbNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbNew.Image = ((System.Drawing.Image)(resources.GetObject("tsbNew.Image")));
+            this.tsbNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbNew.Name = "tsbNew";
+            this.tsbNew.Size = new System.Drawing.Size(28, 28);
+            this.tsbNew.Text = "New";
             // 
-            // toolStripButton2
+            // tsbDelete
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(28, 28);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.tsbDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsbDelete.Image")));
+            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDelete.Name = "tsbDelete";
+            this.tsbDelete.Size = new System.Drawing.Size(28, 28);
+            this.tsbDelete.Text = "toolStripButton2";
             // 
-            // toolStripButton3
+            // tsbRefresh
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(28, 28);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.tsbRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tsbRefresh.Image")));
+            this.tsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbRefresh.Name = "tsbRefresh";
+            this.tsbRefresh.Size = new System.Drawing.Size(28, 28);
+            this.tsbRefresh.Text = "toolStripButton3";
             // 
             // cmsHost
             // 
@@ -182,7 +182,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(161, 443);
+            this.tabPage4.Size = new System.Drawing.Size(161, 450);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Tag";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -196,7 +196,7 @@
             treeNode2.Text = "主机";
             this.tvTag.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode2});
-            this.tvTag.Size = new System.Drawing.Size(155, 437);
+            this.tvTag.Size = new System.Drawing.Size(155, 444);
             this.tvTag.TabIndex = 0;
             // 
             // tabControl1
@@ -222,14 +222,6 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // ucHostDetails1
-            // 
-            this.ucHostDetails1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucHostDetails1.Location = new System.Drawing.Point(3, 3);
-            this.ucHostDetails1.Name = "ucHostDetails1";
-            this.ucHostDetails1.Size = new System.Drawing.Size(459, 399);
-            this.ucHostDetails1.TabIndex = 1;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnHostApply);
@@ -254,7 +246,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(465, 443);
+            this.tabPage2.Size = new System.Drawing.Size(465, 450);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -264,6 +256,14 @@
             this.tsslStatus.Name = "tsslStatus";
             this.tsslStatus.Size = new System.Drawing.Size(32, 17);
             this.tsslStatus.Text = "就绪";
+            // 
+            // ucHostDetails1
+            // 
+            this.ucHostDetails1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucHostDetails1.Location = new System.Drawing.Point(3, 3);
+            this.ucHostDetails1.Name = "ucHostDetails1";
+            this.ucHostDetails1.Size = new System.Drawing.Size(459, 399);
+            this.ucHostDetails1.TabIndex = 1;
             // 
             // MainForm
             // 
@@ -295,9 +295,9 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton tsbNew;
+        private System.Windows.Forms.ToolStripButton tsbDelete;
+        private System.Windows.Forms.ToolStripButton tsbRefresh;
         private System.Windows.Forms.ContextMenuStrip cmsHost;
         private System.Windows.Forms.ToolStripMenuItem tsmiNew;
         private System.Windows.Forms.ToolStripMenuItem tsmiDelete;

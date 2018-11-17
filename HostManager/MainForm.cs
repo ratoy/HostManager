@@ -39,6 +39,32 @@ namespace HostManager
 
             //init cms
             InitCmsStrip();
+
+            //init toolstrip
+            InitToolStrip();
+        }
+
+        void InitToolStrip()
+        {
+            this.toolStrip1.ItemClicked += new ToolStripItemClickedEventHandler(toolStrip1_ItemClicked);
+        }
+
+        void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            switch (e.ClickedItem.Name.ToLower())
+            {
+                case "tsbnew":
+                    NewHost();
+                    break;
+                case "tsbrefresh":
+                    UpdateData();
+                    break;
+                case "tsbdelete":
+                    DeleteHost();
+                    break;
+                default:
+                    break;
+            }
         }
 
         void UpdateData()
@@ -78,6 +104,7 @@ namespace HostManager
             {
                 m_HostService.AddHost(nhf.GetHost());
                 UpdateData();
+                NotifyMsg("主机已添加");
             }
         }
 
@@ -87,6 +114,7 @@ namespace HostManager
             {
                 m_HostService.RemoveHost(m_CurrentHost.Id);
                 UpdateData();
+                NotifyMsg("主机已删除");
             }
         }
 
@@ -101,6 +129,8 @@ namespace HostManager
             {
                 Host host = ucHostDetails1.GetHost();
                 m_HostService.UpdateHost(m_CurrentHost.Id, host);
+                UpdateData();
+                NotifyMsg("主机已更新");
             }
         }
 
@@ -110,6 +140,7 @@ namespace HostManager
             tvHost.AfterSelect += new TreeViewEventHandler(tvHost_AfterSelect);
 
             UpdateHostTree(hostList);
+            NotifyMsg("主机初始化成功");
         }
 
         void UpdateHostTree(List<Host> hostList)
@@ -137,6 +168,7 @@ namespace HostManager
             tvTag.AfterSelect += new TreeViewEventHandler(tvTag_AfterSelect);
 
             UpdateTagTree(hostList);
+            NotifyMsg("主机分类初始化成功");
         }
 
         void UpdateTagTree(List<Host> hostList)
@@ -212,6 +244,7 @@ namespace HostManager
                 m_CurrentHost = tn.Tag as Host;
             }
             ucHostDetails1.UpdateData(m_CurrentHost, m_TagService.GetAllTags());
+            NotifyMsg("当前主机：" + m_CurrentHost.Id);
         }
 
         void NotifyMsg(string msg)

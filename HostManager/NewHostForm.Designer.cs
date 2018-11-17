@@ -80,7 +80,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucHostDetails1);
             this.Name = "NewHostForm";
-            this.Text = "NewHostForm";
+            this.Text = "新建主机";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

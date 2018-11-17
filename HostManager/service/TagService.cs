@@ -35,7 +35,7 @@ namespace HostManager.service
 
         internal void AddTag(List<Tag> NewTagList)
         {
-            throw new NotImplementedException();
+            m_TagRepository.Save(NewTagList);
         }
     }
 }

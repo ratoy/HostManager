@@ -9,5 +9,15 @@ namespace HostManager
     {
         public int Id { get; set; }
         public String Name { get; set; }
+
+        public Tag(int Id,String Name)
+        {
+            this.Id = Id;
+            this.Name = Name;
+        }
+        public Tag(String Name)
+        {
+            this.Name = Name;
+        }
     }
 }

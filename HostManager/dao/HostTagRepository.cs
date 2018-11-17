@@ -18,7 +18,7 @@ namespace HostManager.dao
             StringBuilder sbuilder = new StringBuilder(sqlBasicTag);
             foreach (HostTag ht in HostTagList)
             {
-                sbuilder.AppendFormat("('{0},{1}')",ht.HostId,ht.TagId);
+                sbuilder.AppendFormat("({0},{1})", ht.HostId, ht.TagId);
                 sqlList.Add(sbuilder.ToString());
 
                 sbuilder = new StringBuilder(sqlBasicTag);
@@ -34,14 +34,12 @@ namespace HostManager.dao
 
         internal List<Tag> FindByHostId(int HostId)
         {
-            DataTable dtTag = m_SqliteOpera.Query("select t.id as tag_id, t.name as tag_name from tag t, host_tag ht where ht.tag_id=t.id and ht.host_id="+HostId);
+            DataTable dtTag = m_SqliteOpera.Query("select t.id as tag_id, t.name as tag_name from tag t, host_tag ht where ht.tag_id=t.id and ht.host_id=" + HostId);
             List<Tag> TagList = new List<Tag>();
 
-            foreach (DataRow  dr in dtTag.Rows)
+            foreach (DataRow dr in dtTag.Rows)
             {
-                Tag tag = new Tag();
-                tag.Id = Convert.ToInt32(dr["tag_id"]);
-                tag.Name= Convert.ToString(dr["tag_name"]);
+                Tag tag = new Tag(Convert.ToInt32(dr["tag_id"]), Convert.ToString(dr["tag_name"]));
 
                 TagList.Add(tag);
             }

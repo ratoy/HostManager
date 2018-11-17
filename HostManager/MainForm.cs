@@ -46,10 +46,7 @@ namespace HostManager
             if (m_CurrentHost != null)
             {
                 Host host = ucHostDetails1.GetHost();
-                List<Tag> NewTagList = ucHostDetails1.GetNewTagList();
-
                 m_HostService.EditHost(m_CurrentHost.Id, host);
-                m_TagService.AddTag(NewTagList);
             }
         }
 

@@ -25,9 +25,7 @@ namespace HostManager.dao
 
         private Tag DataRowToTag(DataRow dr)
         {
-            Tag tag = new Tag();
-            tag.Id = Convert.ToInt32(dr["id"]);
-            tag.Name = Convert.ToString(dr["name"]);
+            Tag tag = new Tag(Convert.ToInt32(dr["id"]), Convert.ToString(dr["name"]));
 
             return tag;
         }
@@ -48,7 +46,7 @@ namespace HostManager.dao
 
         internal List<Tag> FindAll()
         {
-            DataTable dt = m_SqliteOpera.Query("select * from tag");
+            DataTable dt = m_SqliteOpera.Query("select * from tag order by name");
 
             List<Tag> tagList = new List<Tag>();
             foreach (DataRow dr in dt.Rows)
@@ -56,6 +54,21 @@ namespace HostManager.dao
                 tagList.Add(DataRowToTag(dr));
             }
             return tagList;
+        }
+
+        internal void Save(List<Tag> NewTagList)
+        {
+            List<String> sqlList = new List<string>();
+            foreach (Tag tag in NewTagList)
+            {
+                Tag oldTag = FindByTagName(tag.Name);
+                if (oldTag == null)
+                {
+                    sqlList.Add("insert into tag(name) values('" + tag.Name + "')");
+                }
+            }
+
+            m_SqliteOpera.BatProcess(sqlList);
         }
     }
 }

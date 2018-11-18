@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{08CF0D8A-A7CB-4CD2-8C2A-B6469F51364D}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HostManager/SqliteOperation.cs">
+    <Files>
+      <File FileName="HostManager/SqliteOperation.cs" Line="368" Column="16" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HostManager" expanded="True">
+            <Node name="HostManager" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.HostManager PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

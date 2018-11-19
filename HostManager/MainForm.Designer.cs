@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("主机");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("主机");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("主机");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("主机");
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbNew = new System.Windows.Forms.ToolStripButton();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
@@ -41,6 +41,7 @@
             this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRefresh = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tsslStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tvHost = new System.Windows.Forms.TreeView();
@@ -51,7 +52,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnHostApply = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tsslStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.ucHostDetails1 = new HostManager.ucHostDetails();
             this.toolStrip1.SuspendLayout();
             this.cmsHost.SuspendLayout();
@@ -73,7 +73,7 @@
             this.tsbRefresh});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(642, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(856, 31);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -135,11 +135,18 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsslStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 507);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 644);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(642, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(856, 22);
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tsslStatus
+            // 
+            this.tsslStatus.Name = "tsslStatus";
+            this.tsslStatus.Size = new System.Drawing.Size(32, 17);
+            this.tsslStatus.Text = "就绪";
             // 
             // tabControl2
             // 
@@ -148,18 +155,20 @@
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.tabControl2.Location = new System.Drawing.Point(0, 31);
+            this.tabControl2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(169, 476);
+            this.tabControl2.Size = new System.Drawing.Size(225, 613);
             this.tabControl2.TabIndex = 7;
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.tvHost);
             this.tabPage3.Location = new System.Drawing.Point(4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(161, 450);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage3.Size = new System.Drawing.Size(217, 580);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Host";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -167,22 +176,24 @@
             // tvHost
             // 
             this.tvHost.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tvHost.Location = new System.Drawing.Point(3, 3);
+            this.tvHost.Location = new System.Drawing.Point(4, 5);
+            this.tvHost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tvHost.Name = "tvHost";
-            treeNode1.Name = "节点0";
-            treeNode1.Text = "主机";
+            treeNode3.Name = "节点0";
+            treeNode3.Text = "主机";
             this.tvHost.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            this.tvHost.Size = new System.Drawing.Size(155, 444);
+            treeNode3});
+            this.tvHost.Size = new System.Drawing.Size(209, 570);
             this.tvHost.TabIndex = 0;
             // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.tvTag);
             this.tabPage4.Location = new System.Drawing.Point(4, 4);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(161, 450);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage4.Size = new System.Drawing.Size(217, 688);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Tag";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -190,13 +201,14 @@
             // tvTag
             // 
             this.tvTag.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tvTag.Location = new System.Drawing.Point(3, 3);
+            this.tvTag.Location = new System.Drawing.Point(4, 5);
+            this.tvTag.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tvTag.Name = "tvTag";
-            treeNode2.Name = "节点0";
-            treeNode2.Text = "主机";
+            treeNode4.Name = "节点0";
+            treeNode4.Text = "主机";
             this.tvTag.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
-            this.tvTag.Size = new System.Drawing.Size(155, 444);
+            treeNode4});
+            this.tvTag.Size = new System.Drawing.Size(209, 685);
             this.tvTag.TabIndex = 0;
             // 
             // tabControl1
@@ -204,20 +216,22 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(169, 31);
+            this.tabControl1.Location = new System.Drawing.Point(225, 31);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(473, 476);
-            this.tabControl1.TabIndex = 8;
+            this.tabControl1.Size = new System.Drawing.Size(631, 613);
+            this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.ucHostDetails1);
             this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(465, 450);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage1.Size = new System.Drawing.Size(623, 580);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -226,54 +240,54 @@
             // 
             this.panel1.Controls.Add(this.btnHostApply);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 402);
+            this.panel1.Location = new System.Drawing.Point(4, 530);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(459, 45);
+            this.panel1.Size = new System.Drawing.Size(615, 45);
             this.panel1.TabIndex = 0;
             // 
             // btnHostApply
             // 
             this.btnHostApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHostApply.Location = new System.Drawing.Point(379, 6);
+            this.btnHostApply.Location = new System.Drawing.Point(508, 4);
+            this.btnHostApply.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnHostApply.Name = "btnHostApply";
-            this.btnHostApply.Size = new System.Drawing.Size(75, 34);
+            this.btnHostApply.Size = new System.Drawing.Size(100, 37);
             this.btnHostApply.TabIndex = 0;
             this.btnHostApply.Text = "应用";
             this.btnHostApply.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(465, 450);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage2.Size = new System.Drawing.Size(623, 580);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tsslStatus
-            // 
-            this.tsslStatus.Name = "tsslStatus";
-            this.tsslStatus.Size = new System.Drawing.Size(32, 17);
-            this.tsslStatus.Text = "就绪";
-            // 
             // ucHostDetails1
             // 
             this.ucHostDetails1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucHostDetails1.Location = new System.Drawing.Point(3, 3);
+            this.ucHostDetails1.Location = new System.Drawing.Point(4, 5);
+            this.ucHostDetails1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucHostDetails1.Name = "ucHostDetails1";
-            this.ucHostDetails1.Size = new System.Drawing.Size(459, 399);
-            this.ucHostDetails1.TabIndex = 1;
+            this.ucHostDetails1.Size = new System.Drawing.Size(615, 525);
+            this.ucHostDetails1.TabIndex = 3;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 529);
+            this.ClientSize = new System.Drawing.Size(856, 666);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
+            this.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.Text = "主机管理";
             this.toolStrip1.ResumeLayout(false);
@@ -308,13 +322,13 @@
         private System.Windows.Forms.TreeView tvHost;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TreeView tvTag;
+        private System.Windows.Forms.ToolStripStatusLabel tsslStatus;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private ucHostDetails ucHostDetails1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnHostApply;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.ToolStripStatusLabel tsslStatus;
     }
 }
 

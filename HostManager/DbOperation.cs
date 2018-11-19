@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.IO;
+using System.Windows.Forms;
 
 namespace HostManager
 {
     sealed class DbOperation
     {
-        string m_DbFile = "host.db";
+		string m_DbFile =System.IO.Path.Combine(Application.StartupPath, "host.db");
         SQLiteOperation m_SqliteOpera = null;
         private static readonly Lazy<DbOperation> lazy =
             new Lazy<DbOperation>(() => new DbOperation());

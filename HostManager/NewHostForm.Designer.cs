@@ -41,6 +41,8 @@
             this.ucHostDetails1.Name = "ucHostDetails1";
             this.ucHostDetails1.Size = new System.Drawing.Size(457, 369);
             this.ucHostDetails1.TabIndex = 0;
+			this.ucHostDetails1.Font = new System.Drawing.Font("PingFang SC", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.ucHostDetails1.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
             // panel1
             // 
@@ -49,7 +51,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 398);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(469, 45);
+            this.panel1.Size = new System.Drawing.Size(469, 35);
             this.panel1.TabIndex = 1;
             // 
             // btnCancel
@@ -57,7 +59,7 @@
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Location = new System.Drawing.Point(383, 6);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 34);
+            this.btnCancel.Size = new System.Drawing.Size(75, 25);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -67,16 +69,17 @@
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOK.Location = new System.Drawing.Point(295, 6);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 34);
+            this.btnOK.Size = new System.Drawing.Size(75, 25);
             this.btnOK.TabIndex = 1;
             this.btnOK.Text = "确定";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
             // NewHostForm
             // 
+			this.Font = new System.Drawing.Font("PingFang SC", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 443);
+            this.ClientSize = new System.Drawing.Size(450, 350);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucHostDetails1);
             this.Name = "NewHostForm";

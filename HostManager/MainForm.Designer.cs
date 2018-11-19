@@ -112,6 +112,7 @@
             this.tsmiRefresh});
             this.cmsHost.Name = "cmsHost";
             this.cmsHost.Size = new System.Drawing.Size(101, 70);
+			this.cmsHost.Font = new System.Drawing.Font("PingFang SC", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             // 
             // tsmiNew
             // 

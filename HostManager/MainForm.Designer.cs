@@ -30,14 +30,14 @@ namespace HostManager
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("主机");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("主机");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("主机");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("主机");
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbNew = new System.Windows.Forms.ToolStripButton();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.tsbRefresh = new System.Windows.Forms.ToolStripButton();
-            this.tsbPush= new System.Windows.Forms.ToolStripButton();
             this.tsbPull = new System.Windows.Forms.ToolStripButton();
+            this.tsbPush = new System.Windows.Forms.ToolStripButton();
             this.cmsHost = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiNew = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,10 +51,10 @@ namespace HostManager
             this.tvTag = new System.Windows.Forms.TreeView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ucHostDetails1 = new HostManager.ucHostDetails();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnHostApply = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.ucHostDetails1 = new HostManager.ucHostDetails();
             this.toolStrip1.SuspendLayout();
             this.cmsHost.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -73,8 +73,8 @@ namespace HostManager
             this.tsbNew,
             this.tsbDelete,
             this.tsbRefresh,
-			this.tsbPull,
-			this.tsbPush});
+            this.tsbPull,
+            this.tsbPush});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(856, 31);
@@ -109,9 +109,9 @@ namespace HostManager
             this.tsbRefresh.Text = "toolStripButton3";
             // 
             // tsbPull
-			// 
+            // 
             this.tsbPull.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbPull.Image = ((System.Drawing.Image)(resources.GetObject("tsbRefresh.Image")));
+            this.tsbPull.Image = ((System.Drawing.Image)(resources.GetObject("tsbPull.Image")));
             this.tsbPull.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbPull.Name = "tsbPull";
             this.tsbPull.Size = new System.Drawing.Size(28, 28);
@@ -120,7 +120,7 @@ namespace HostManager
             // tsbPush
             // 
             this.tsbPush.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbPush.Image = ((System.Drawing.Image)(resources.GetObject("tsbRefresh.Image")));
+            this.tsbPush.Image = ((System.Drawing.Image)(resources.GetObject("tsbPush.Image")));
             this.tsbPush.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbPush.Name = "tsbPush";
             this.tsbPush.Size = new System.Drawing.Size(28, 28);
@@ -128,13 +128,13 @@ namespace HostManager
             // 
             // cmsHost
             // 
+            this.cmsHost.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cmsHost.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiNew,
             this.tsmiDelete,
             this.tsmiRefresh});
             this.cmsHost.Name = "cmsHost";
             this.cmsHost.Size = new System.Drawing.Size(101, 70);
-			this.cmsHost.Font = new System.Drawing.Font("PingFang SC", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             // 
             // tsmiNew
             // 
@@ -158,19 +158,19 @@ namespace HostManager
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsslStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 644);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 641);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(856, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(856, 25);
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // tsslStatus
             // 
+            this.tsslStatus.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tsslStatus.Name = "tsslStatus";
-            this.tsslStatus.Size = new System.Drawing.Size(32, 17);
+            this.tsslStatus.Size = new System.Drawing.Size(37, 20);
             this.tsslStatus.Text = "就绪";
-			this.tsslStatus.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             // 
             // tabControl2
             // 
@@ -182,7 +182,7 @@ namespace HostManager
             this.tabControl2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(225, 613);
+            this.tabControl2.Size = new System.Drawing.Size(225, 610);
             this.tabControl2.TabIndex = 7;
             // 
             // tabPage3
@@ -192,7 +192,7 @@ namespace HostManager
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage3.Size = new System.Drawing.Size(217, 580);
+            this.tabPage3.Size = new System.Drawing.Size(217, 577);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Host";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -203,11 +203,11 @@ namespace HostManager
             this.tvHost.Location = new System.Drawing.Point(4, 5);
             this.tvHost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tvHost.Name = "tvHost";
-            treeNode3.Name = "节点0";
-            treeNode3.Text = "主机";
+            treeNode1.Name = "节点0";
+            treeNode1.Text = "主机";
             this.tvHost.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            this.tvHost.Size = new System.Drawing.Size(209, 570);
+            treeNode1});
+            this.tvHost.Size = new System.Drawing.Size(209, 567);
             this.tvHost.TabIndex = 0;
             // 
             // tabPage4
@@ -217,7 +217,7 @@ namespace HostManager
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage4.Size = new System.Drawing.Size(217, 688);
+            this.tabPage4.Size = new System.Drawing.Size(217, 580);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Tag";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -228,10 +228,10 @@ namespace HostManager
             this.tvTag.Location = new System.Drawing.Point(4, 5);
             this.tvTag.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tvTag.Name = "tvTag";
-            treeNode4.Name = "节点0";
-            treeNode4.Text = "主机";
+            treeNode2.Name = "节点0";
+            treeNode2.Text = "主机";
             this.tvTag.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
+            treeNode2});
             this.tvTag.Size = new System.Drawing.Size(209, 685);
             this.tvTag.TabIndex = 0;
             // 
@@ -244,7 +244,7 @@ namespace HostManager
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(631, 613);
+            this.tabControl1.Size = new System.Drawing.Size(631, 610);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
@@ -255,16 +255,26 @@ namespace HostManager
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage1.Size = new System.Drawing.Size(623, 580);
+            this.tabPage1.Size = new System.Drawing.Size(623, 577);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ucHostDetails1
+            // 
+            this.ucHostDetails1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucHostDetails1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ucHostDetails1.Location = new System.Drawing.Point(4, 5);
+            this.ucHostDetails1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucHostDetails1.Name = "ucHostDetails1";
+            this.ucHostDetails1.Size = new System.Drawing.Size(615, 522);
+            this.ucHostDetails1.TabIndex = 3;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnHostApply);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(4, 530);
+            this.panel1.Location = new System.Drawing.Point(4, 527);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(615, 45);
@@ -292,16 +302,6 @@ namespace HostManager
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // ucHostDetails1
-            // 
-            this.ucHostDetails1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucHostDetails1.Location = new System.Drawing.Point(4, 5);
-            this.ucHostDetails1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucHostDetails1.Name = "ucHostDetails1";
-            this.ucHostDetails1.Size = new System.Drawing.Size(615, 525);
-			this.ucHostDetails1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ucHostDetails1.TabIndex = 3;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -312,7 +312,6 @@ namespace HostManager
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            //this.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.Text = "主机管理";

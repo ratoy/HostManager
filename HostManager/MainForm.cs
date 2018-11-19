@@ -89,6 +89,7 @@ namespace HostManager
 
         void cmsHost_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
+			this.cmsHost.Hide();
             switch (e.ClickedItem.Name.ToLower())
             {
                 case "tsminew":

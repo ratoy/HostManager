@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Threading;
-using System.Data.SQLite;
+using Mono.Data.Sqlite;
 
 namespace HostManager
 {
@@ -13,9 +13,9 @@ namespace HostManager
     class SQLiteOperation
     {
         string m_ConnectString = "";
-        SQLiteConnection m_Conn;
-        SQLiteDataAdapter m_DataAdapter;
-        SQLiteCommand m_Command;//
+        SqliteConnection m_Conn;
+        SqliteDataAdapter m_DataAdapter;
+        SqliteCommand m_Command;//
         string m_Passwd = "";
         string m_LastErrorMsg = "";
         bool m_Busy = false;
@@ -64,7 +64,7 @@ namespace HostManager
         void CreateSQLiteDB(string SqliteDbName, string Passwd)
         {
             //创建文件j
-            SQLiteConnection.CreateFile(SqliteDbName);
+            SqliteConnection.CreateFile(SqliteDbName);
             //初始化连接
             ConnectionInit(SqliteDbName, "");
             //设置密码
@@ -82,7 +82,7 @@ namespace HostManager
             try
             {
                 m_ConnectString = "Data Source=" + SqliteDbName;
-                m_Conn = new SQLiteConnection(m_ConnectString);
+                m_Conn = new SqliteConnection(m_ConnectString);
                 m_Command = m_Conn.CreateCommand();
                 m_Passwd = Passwd;
             }
@@ -191,7 +191,7 @@ namespace HostManager
 
             try
             {
-                m_DataAdapter = new SQLiteDataAdapter(QueryCmd, m_Conn);
+                m_DataAdapter = new SqliteDataAdapter(QueryCmd, m_Conn);
 
                 DataTable table = new DataTable();
                 table.Locale = System.Globalization.CultureInfo.InvariantCulture;
@@ -230,7 +230,7 @@ namespace HostManager
             //连接
             ConnectToDB();
 
-            SQLiteTransaction transcation = m_Conn.BeginTransaction();
+            SqliteTransaction transcation = m_Conn.BeginTransaction();
             try
             {
                 int count = BatCmdList.Count + 1;

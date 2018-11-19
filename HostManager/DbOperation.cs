@@ -27,6 +27,9 @@ namespace HostManager
            
         }
 
+		public String GetDbFile()
+		{ return m_DbFile;}
+
         void InitSql()
         {
             m_InitSqlList.Clear();

@@ -45,6 +45,9 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Mono.Data.Sqlite" />
+    <Reference Include="Renci.SshNet">
+      <HintPath>..\..\..\..\SSH.NET-2016.1.0-bin\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dao\HostRepository.cs" />

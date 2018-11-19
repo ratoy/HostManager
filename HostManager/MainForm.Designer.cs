@@ -36,6 +36,8 @@
             this.tsbNew = new System.Windows.Forms.ToolStripButton();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.tsbRefresh = new System.Windows.Forms.ToolStripButton();
+            this.tsbPush= new System.Windows.Forms.ToolStripButton();
+            this.tsbPull = new System.Windows.Forms.ToolStripButton();
             this.cmsHost = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiNew = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +72,9 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNew,
             this.tsbDelete,
-            this.tsbRefresh});
+            this.tsbRefresh,
+			this.tsbPull,
+			this.tsbPush});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(856, 31);
@@ -103,6 +107,24 @@
             this.tsbRefresh.Name = "tsbRefresh";
             this.tsbRefresh.Size = new System.Drawing.Size(28, 28);
             this.tsbRefresh.Text = "toolStripButton3";
+            // 
+            // tsbPull
+			// 
+            this.tsbPull.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbPull.Image = ((System.Drawing.Image)(resources.GetObject("tsbRefresh.Image")));
+            this.tsbPull.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbPull.Name = "tsbPull";
+            this.tsbPull.Size = new System.Drawing.Size(28, 28);
+            this.tsbPull.Text = "pull db file";
+            // 
+            // tsbPush
+            // 
+            this.tsbPush.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbPush.Image = ((System.Drawing.Image)(resources.GetObject("tsbRefresh.Image")));
+            this.tsbPush.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbPush.Name = "tsbPush";
+            this.tsbPush.Size = new System.Drawing.Size(28, 28);
+            this.tsbPush.Text = "push db file";
             // 
             // cmsHost
             // 
@@ -316,6 +338,8 @@
         private System.Windows.Forms.ToolStripButton tsbNew;
         private System.Windows.Forms.ToolStripButton tsbDelete;
         private System.Windows.Forms.ToolStripButton tsbRefresh;
+        private System.Windows.Forms.ToolStripButton tsbPull;
+        private System.Windows.Forms.ToolStripButton tsbPush;
         private System.Windows.Forms.ContextMenuStrip cmsHost;
         private System.Windows.Forms.ToolStripMenuItem tsmiNew;
         private System.Windows.Forms.ToolStripMenuItem tsmiDelete;

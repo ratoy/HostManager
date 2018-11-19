@@ -148,7 +148,7 @@ namespace HostManager
             tvHost.Nodes.Clear();
             TreeNode RootNode = new TreeNode("主机");
 
-            hostList = m_HostService.GetAllHosts();
+            //hostList = m_HostService.GetAllHosts();
             foreach (Host host in hostList)
             {
                 TreeNode tn = new TreeNode();
@@ -242,9 +242,9 @@ namespace HostManager
             {
                 //leaf
                 m_CurrentHost = tn.Tag as Host;
+	            NotifyMsg("当前主机：" + m_CurrentHost.Id);
             }
             ucHostDetails1.UpdateData(m_CurrentHost, m_TagService.GetAllTags());
-            NotifyMsg("当前主机：" + m_CurrentHost.Id);
         }
 
         void NotifyMsg(string msg)

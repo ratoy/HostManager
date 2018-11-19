@@ -5,8 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Windows.Forms;
 using HostManager.service;
+using Renci.SshNet;
 
 namespace HostManager
 {
@@ -62,6 +64,12 @@ namespace HostManager
                 case "tsbdelete":
                     DeleteHost();
                     break;
+                case "tsbpull":
+					PullDbFile();
+                    break;
+                case "tsbpush":
+					PushDbFile();
+                    break;
                 default:
                     break;
             }
@@ -90,7 +98,7 @@ namespace HostManager
                     DeleteHost();
                     break;
                 case "tsmirefresh":
-                    UpdateData();
+					UpdateData();
                     break;
                 default:
                     break;
@@ -252,5 +260,55 @@ namespace HostManager
             msg = msg == null ? "就绪" : msg;
             tsslStatus.Text = msg;
         }
+
+		void PullDbFile()
+		{
+			DbOperation db = DbOperation.Instance;
+			string old_FileName = db.GetDbFile();
+			string dbFile_ext = Path.GetExtension(old_FileName);
+			string new_FileName= Path.GetFileNameWithoutExtension(old_FileName) +
+			                        DateTime.Now.ToString("yy-MM-dd_HH-mm-ss")+dbFile_ext;
+
+			System.IO.File.Move(old_FileName,new_FileName);
+			Host host = FindByIP("10.2.18.160");
+			using (var client = new ScpClient(host.IP,host.User,host.Passwd))
+			{
+		        client.Connect();
+				client.Download( "/app/fileserver/www/"+Path.GetFileName(old_FileName),new FileInfo(old_FileName));
+				NotifyMsg("DbFile pulled!");
+			}
+		}
+
+		void PushDbFile()
+		{
+			DbOperation db = DbOperation.Instance;
+			Host host = FindByIP("10.2.18.160");
+			string old_FileName = db.GetDbFile();
+			string dbFile_ext = Path.GetExtension(old_FileName);
+			string new_FileName= Path.GetFileNameWithoutExtension(old_FileName) +
+			                        DateTime.Now.ToString("yy-MM-dd_HH-mm-ss")+dbFile_ext;
+
+			System.IO.File.Copy(old_FileName, new_FileName);
+
+			using (var client = new ScpClient(host.IP,host.User,host.Passwd))
+			{
+		        client.Connect();
+				client.Upload(new FileInfo(old_FileName), "/app/fileserver/www/"+Path.GetFileName(old_FileName));
+				client.Upload(new FileInfo(new_FileName), "/app/fileserver/www/"+Path.GetFileName(new_FileName));
+				NotifyMsg("DbFile pushed!");
+			}
+		}
+
+		Host FindByIP(string ip)
+		{
+			foreach (Host host in m_HostList)
+			{
+				if (host.IP==ip)
+				{
+					return host;
+				}
+			}
+			return null;
+		}
     }
 }

@@ -1,18 +1,17 @@
 ﻿<Properties StartupConfiguration="{08CF0D8A-A7CB-4CD2-8C2A-B6469F51364D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="HostManager/ucHostDetails.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HostManager/MainForm.Designer.cs">
     <Files>
       <File FileName="HostManager/DbOperation.cs" Line="16" Column="49" />
       <File FileName="HostManager/Program.cs" Line="19" Column="10" />
-      <File FileName="HostManager/MainForm.cs" Line="246" Column="33" />
-      <File FileName="HostManager/ucHostDetails.Designer.cs" Line="64" Column="47" />
-      <File FileName="HostManager/ucHostDetails.cs" Line="17" Column="35" />
+      <File FileName="HostManager/MainForm.cs" Line="14" Column="6" />
+      <File FileName="HostManager/ucHostDetails.Designer.cs" Line="1" Column="1" />
+      <File FileName="HostManager/ucHostDetails.cs" Line="175" Column="27" />
+      <File FileName="HostManager/MainForm.Designer.cs" Line="150" Column="63" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/wuhao/Downloads/test/temp/HostManager/HostManager/MainForm.cs" relfile="HostManager/MainForm.cs" line="240" column="19" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.HostManager PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -1,4 +1,4 @@
-﻿namespace HostManager
+namespace HostManager
 {
     partial class ucHostDetails
     {
@@ -63,7 +63,7 @@
             this.tbIP = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            this.Font = new System.Drawing.Font("PingFang SC", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             // 
             // label15
             // 

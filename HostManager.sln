@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostManager", "HostManager\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostTools", "HostTools\HostTools.csproj", "{3FB96D1A-F671-40BD-BC60-83EB0E0180B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostManager-gtk", "HostManager-gtk\HostManager-gtk.csproj", "{3643FB24-B28C-4861-AB44-BCDABFA2E93E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,6 +21,10 @@ Global
 		{3FB96D1A-F671-40BD-BC60-83EB0E0180B4}.Debug|x86.Build.0 = Debug|Any CPU
 		{3FB96D1A-F671-40BD-BC60-83EB0E0180B4}.Release|x86.ActiveCfg = Release|Any CPU
 		{3FB96D1A-F671-40BD-BC60-83EB0E0180B4}.Release|x86.Build.0 = Release|Any CPU
+		{3643FB24-B28C-4861-AB44-BCDABFA2E93E}.Debug|x86.ActiveCfg = Debug|x86
+		{3643FB24-B28C-4861-AB44-BCDABFA2E93E}.Debug|x86.Build.0 = Debug|x86
+		{3643FB24-B28C-4861-AB44-BCDABFA2E93E}.Release|x86.ActiveCfg = Release|x86
+		{3643FB24-B28C-4861-AB44-BCDABFA2E93E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

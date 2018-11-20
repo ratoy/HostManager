@@ -7,20 +7,25 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Windows.Forms;
-using HostManager.service;
-using Renci.SshNet;
+using HostTools;
+using HostTools.service;
 
 namespace HostManager
 {
     public partial class MainForm : Form
     {
-        HostService m_HostService = new HostService();
-        TagService m_TagService = new TagService();
+        HostService m_HostService = null;
+        TagService m_TagService = null;
         List<Host> m_HostList = new List<Host>();
+        IDbTools m_DbTools = null;
         Host m_CurrentHost = null;
 
         public MainForm()
         {
+            //db init
+            m_DbTools = SqliteOperation.Instance;
+            DbOperation.Create(m_DbTools);
+
             InitializeComponent();
 
             Init();
@@ -28,6 +33,9 @@ namespace HostManager
 
         void Init()
         {
+            m_HostService = new HostService();
+            m_TagService = new TagService();
+
             this.tvHost.HideSelection = this.tvTag.HideSelection = false;
             this.StartPosition = FormStartPosition.CenterScreen;
             m_HostList = m_HostService.GetAllHosts();
@@ -185,28 +193,7 @@ namespace HostManager
             tvTag.Nodes.Clear();
             TreeNode RootNode = new TreeNode("主机");
 
-            Dictionary<string, List<Host>> DictTagHost = new Dictionary<string, List<Host>>();
-            List<Tag> TagList = m_TagService.GetAllTags();
-            foreach (Tag tag in TagList)
-            {
-                DictTagHost[tag.Name] = new List<Host>();
-            }
-
-            //add os
-            List<String> OSList = hostList.Select(x => x.OS).Distinct(StringComparer.CurrentCultureIgnoreCase).ToList();
-            foreach (String os in OSList)
-            {
-                DictTagHost[os.ToLower()] = new List<Host>();
-            }
-
-            foreach (Host h in hostList)
-            {
-                DictTagHost[h.OS.ToLower()].Add(h);
-                foreach (Tag tag in h.Tags)
-                {
-                    DictTagHost[tag.Name].Add(h);
-                }
-            }
+            Dictionary<string, List<Host>> DictTagHost = m_TagService.GetTagHosts(hostList);
 
             //add to tree
             foreach (KeyValuePair<String, List<Host>> kv in DictTagHost)
@@ -214,8 +201,6 @@ namespace HostManager
                 TreeNode TagTn = new TreeNode();
                 TagTn.Text = kv.Key;
                 TagTn.Name = kv.Key;
-
-                kv.Value.Sort(new HostManager.dao.HostRepository.IPComparer()); ;
 
                 foreach (Host h in kv.Value)
                 {
@@ -262,44 +247,6 @@ namespace HostManager
             tsslStatus.Text = msg;
         }
 
-		void PullDbFile()
-		{
-			DbOperation db = DbOperation.Instance;
-			string old_FileName = db.GetDbFile();
-			string dbFile_ext = Path.GetExtension(old_FileName);
-			string new_FileName= Path.GetFileNameWithoutExtension(old_FileName) +
-			                        DateTime.Now.ToString("yy-MM-dd_HH-mm-ss")+dbFile_ext;
-
-			System.IO.File.Move(old_FileName,new_FileName);
-			Host host = FindByIP("10.2.18.160");
-			using (var client = new ScpClient(host.IP,host.User,host.Passwd))
-			{
-		        client.Connect();
-				client.Download( "/app/fileserver/www/"+Path.GetFileName(old_FileName),new FileInfo(old_FileName));
-				NotifyMsg("DbFile pulled!");
-			}
-		}
-
-		void PushDbFile()
-		{
-			DbOperation db = DbOperation.Instance;
-			Host host = FindByIP("10.2.18.160");
-			string old_FileName = db.GetDbFile();
-			string dbFile_ext = Path.GetExtension(old_FileName);
-			string new_FileName= Path.GetFileNameWithoutExtension(old_FileName) +
-			                        DateTime.Now.ToString("yy-MM-dd_HH-mm-ss")+dbFile_ext;
-
-			System.IO.File.Copy(old_FileName, new_FileName);
-
-			using (var client = new ScpClient(host.IP,host.User,host.Passwd))
-			{
-		        client.Connect();
-				client.Upload(new FileInfo(old_FileName), "/app/fileserver/www/"+Path.GetFileName(old_FileName));
-				client.Upload(new FileInfo(new_FileName), "/app/fileserver/www/"+Path.GetFileName(new_FileName));
-				NotifyMsg("DbFile pushed!");
-			}
-		}
-
 		Host FindByIP(string ip)
 		{
 			foreach (Host host in m_HostList)
@@ -311,5 +258,19 @@ namespace HostManager
 			}
 			return null;
 		}
+
+        void PullDbFile()
+        {
+            Host host = FindByIP("10.2.18.160");
+            m_DbTools.BakDb(host);
+            NotifyMsg("DbFile pulled!");
+        }
+
+        void PushDbFile()
+        {
+            Host host = FindByIP("10.2.18.160");
+            m_DbTools.RecoverDb(host);
+            NotifyMsg("DbFile pushed!");
+        }
     }
 }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using HostTools;
 
 namespace HostManager
 {
@@ -30,7 +31,7 @@ namespace HostManager
             this.DialogResult = DialogResult.OK;
         }
 
-        internal Host GetHost()
+        public Host GetHost()
         {
             return this.ucHostDetails1.GetHost();
         }

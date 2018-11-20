@@ -67,6 +67,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqliteOperation.cs" />
+    <Compile Include="Widget.cs" />
+    <Compile Include="gtk-gui\HostManagergtk.Widget.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HostTools\HostTools.csproj">

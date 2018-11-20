@@ -136,7 +136,10 @@
                     <property name="CanFocus">True</property>
                     <property name="CurrentPage">0</property>
                     <child>
-                      <placeholder />
+                      <widget class="HostManagergtk.Widget" id="widget1">
+                        <property name="MemberName" />
+                        <property name="Events">ButtonPressMask</property>
+                      </widget>
                     </child>
                     <child>
                       <widget class="Gtk.Label" id="label1">
@@ -190,6 +193,13 @@
           </packing>
         </child>
       </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Bin" id="HostManagergtk.Widget" design-size="300 300">
+    <property name="MemberName" />
+    <property name="Visible">False</property>
+    <child>
+      <placeholder />
     </child>
   </widget>
 </stetic-interface>

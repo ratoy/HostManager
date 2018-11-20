@@ -39,6 +39,8 @@ public partial class MainWindow
 
 	private global::Gtk.Notebook notebook1;
 
+	private global::HostManagergtk.Widget widget1;
+
 	private global::Gtk.Label label1;
 
 	private global::Gtk.Label label3;
@@ -139,14 +141,16 @@ public partial class MainWindow
 		this.notebook1.CanFocus = true;
 		this.notebook1.Name = "notebook1";
 		this.notebook1.CurrentPage = 0;
+		// Container child notebook1.Gtk.Notebook+NotebookChild
+		this.widget1 = new global::HostManagergtk.Widget();
+		this.widget1.Events = ((global::Gdk.EventMask)(256));
+		this.widget1.Name = "widget1";
+		this.notebook1.Add(this.widget1);
 		// Notebook tab
-		global::Gtk.Label w8 = new global::Gtk.Label();
-		w8.Visible = true;
-		this.notebook1.Add(w8);
 		this.label1 = new global::Gtk.Label();
 		this.label1.Name = "label1";
 		this.label1.LabelProp = global::Mono.Unix.Catalog.GetString("page1");
-		this.notebook1.SetTabLabel(w8, this.label1);
+		this.notebook1.SetTabLabel(this.widget1, this.label1);
 		this.label1.ShowAll();
 		// Notebook tab
 		global::Gtk.Label w9 = new global::Gtk.Label();

@@ -1,25 +1,25 @@
 ﻿<Properties StartupConfiguration="{3643FB24-B28C-4861-AB44-BCDABFA2E93E}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="HostManager/MainForm.Designer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HostManager/ucHostDetails.Designer.cs">
     <Files>
-      <File FileName="HostManager-gtk/MainWindow.cs" Line="157" Column="1" />
-      <File FileName="HostManager-gtk/SqliteOperation.cs" Line="25" Column="24" />
-      <File FileName="HostManager-gtk/Program.cs" Line="4" Column="18" />
-      <File FileName="HostManager/MainForm.cs" Line="219" Column="38" />
-      <File FileName="HostTools/dao/HostRepository.cs" Line="95" Column="28" />
-      <File FileName="HostTools/service/HostService.cs" Line="56" Column="40" />
-      <File FileName="HostManager/MainForm.Designer.cs" Line="54" Column="1" />
+      <File FileName="HostManager-gtk/MainWindow.cs" Line="41" Column="23" />
+      <File FileName="HostManager-gtk/Widget.cs" Line="13" Column="1" />
+      <File FileName="HostManager/ucHostDetails.Designer.cs" Line="64" Column="59" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="HostManager" expanded="True">
             <Node name="HostManager" expanded="True">
-              <Node name="MainForm.cs" expanded="True">
-                <Node name="MainForm.Designer.cs" selected="True" />
+              <Node name="MainForm.cs" expanded="True" />
+              <Node name="ucHostDetails.cs" expanded="True">
+                <Node name="ucHostDetails.Designer.cs" selected="True" />
               </Node>
             </Node>
             <Node name="HostManager-gtk" expanded="True">
-              <Node name="UserInterface" expanded="True" />
+              <Node name="UserInterface" expanded="True">
+                <Node name="MainWindow" expanded="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
             </Node>
           </Node>
         </State>

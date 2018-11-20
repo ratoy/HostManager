@@ -149,7 +149,8 @@ public partial class MainWindow : Gtk.Window
     { }
 
     void InitToolStrip()
-    { }
+    { 
+    }
 
     void NotifyMsg(string msg)
     {

@@ -49,7 +49,7 @@
             <property name="MemberName" />
             <property name="ShowArrow">False</property>
             <property name="ButtonStyle">Icons</property>
-            <node name="__gtksharp_153_Stetic_Editor_ActionToolbar" type="Toolbar">
+            <node name="toolbar1" type="Toolbar">
               <node type="Toolitem" action="addAction" />
               <node type="Toolitem" action="removeAction" />
               <node type="Toolitem" action="refreshAction" />
@@ -136,9 +136,28 @@
                     <property name="CanFocus">True</property>
                     <property name="CurrentPage">0</property>
                     <child>
-                      <widget class="HostManagergtk.Widget" id="widget1">
+                      <widget class="Gtk.VPaned" id="vpaned4">
                         <property name="MemberName" />
-                        <property name="Events">ButtonPressMask</property>
+                        <property name="CanFocus">True</property>
+                        <property name="Position">411</property>
+                        <child>
+                          <widget class="HostManagergtk.Widget" id="widget1">
+                            <property name="MemberName" />
+                            <property name="Events">ButtonPressMask</property>
+                          </widget>
+                          <packing>
+                            <property name="Resize">False</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="Gtk.Button" id="btnApply">
+                            <property name="MemberName" />
+                            <property name="CanFocus">True</property>
+                            <property name="Type">TextOnly</property>
+                            <property name="Label" translatable="yes">应用</property>
+                            <property name="UseUnderline">True</property>
+                          </widget>
+                        </child>
                       </widget>
                     </child>
                     <child>

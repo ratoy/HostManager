@@ -39,7 +39,11 @@ public partial class MainWindow
 
 	private global::Gtk.Notebook notebook1;
 
+	private global::Gtk.VPaned vpaned4;
+
 	private global::HostManagergtk.Widget widget1;
+
+	private global::Gtk.Button btnApply;
 
 	private global::Gtk.Label label1;
 
@@ -142,43 +146,58 @@ public partial class MainWindow
 		this.notebook1.Name = "notebook1";
 		this.notebook1.CurrentPage = 0;
 		// Container child notebook1.Gtk.Notebook+NotebookChild
+		this.vpaned4 = new global::Gtk.VPaned();
+		this.vpaned4.CanFocus = true;
+		this.vpaned4.Name = "vpaned4";
+		this.vpaned4.Position = 411;
+		// Container child vpaned4.Gtk.Paned+PanedChild
 		this.widget1 = new global::HostManagergtk.Widget();
 		this.widget1.Events = ((global::Gdk.EventMask)(256));
 		this.widget1.Name = "widget1";
-		this.notebook1.Add(this.widget1);
+		this.vpaned4.Add(this.widget1);
+		global::Gtk.Paned.PanedChild w8 = ((global::Gtk.Paned.PanedChild)(this.vpaned4[this.widget1]));
+		w8.Resize = false;
+		// Container child vpaned4.Gtk.Paned+PanedChild
+		this.btnApply = new global::Gtk.Button();
+		this.btnApply.CanFocus = true;
+		this.btnApply.Name = "btnApply";
+		this.btnApply.UseUnderline = true;
+		this.btnApply.Label = global::Mono.Unix.Catalog.GetString("应用");
+		this.vpaned4.Add(this.btnApply);
+		this.notebook1.Add(this.vpaned4);
 		// Notebook tab
 		this.label1 = new global::Gtk.Label();
 		this.label1.Name = "label1";
 		this.label1.LabelProp = global::Mono.Unix.Catalog.GetString("page1");
-		this.notebook1.SetTabLabel(this.widget1, this.label1);
+		this.notebook1.SetTabLabel(this.vpaned4, this.label1);
 		this.label1.ShowAll();
 		// Notebook tab
-		global::Gtk.Label w9 = new global::Gtk.Label();
-		w9.Visible = true;
-		this.notebook1.Add(w9);
+		global::Gtk.Label w11 = new global::Gtk.Label();
+		w11.Visible = true;
+		this.notebook1.Add(w11);
 		this.label3 = new global::Gtk.Label();
 		this.label3.Name = "label3";
 		this.label3.LabelProp = global::Mono.Unix.Catalog.GetString("page2");
-		this.notebook1.SetTabLabel(w9, this.label3);
+		this.notebook1.SetTabLabel(w11, this.label3);
 		this.label3.ShowAll();
 		this.hpaned1.Add(this.notebook1);
 		this.vpaned3.Add(this.hpaned1);
-		global::Gtk.Paned.PanedChild w11 = ((global::Gtk.Paned.PanedChild)(this.vpaned3[this.hpaned1]));
-		w11.Resize = false;
+		global::Gtk.Paned.PanedChild w13 = ((global::Gtk.Paned.PanedChild)(this.vpaned3[this.hpaned1]));
+		w13.Resize = false;
 		// Container child vpaned3.Gtk.Paned+PanedChild
 		this.statusbar1 = new global::Gtk.Statusbar();
-		global::Gtk.Tooltips w12 = new Gtk.Tooltips();
-		w12.SetTip(this.statusbar1, "ready", "ready");
+		global::Gtk.Tooltips w14 = new Gtk.Tooltips();
+		w14.SetTip(this.statusbar1, "ready", "ready");
 		this.statusbar1.Name = "statusbar1";
 		this.statusbar1.Spacing = 6;
 		this.vpaned3.Add(this.statusbar1);
-		global::Gtk.Paned.PanedChild w13 = ((global::Gtk.Paned.PanedChild)(this.vpaned3[this.statusbar1]));
-		w13.Resize = false;
-		w13.Shrink = false;
+		global::Gtk.Paned.PanedChild w15 = ((global::Gtk.Paned.PanedChild)(this.vpaned3[this.statusbar1]));
+		w15.Resize = false;
+		w15.Shrink = false;
 		this.vpaned2.Add(this.vpaned3);
-		global::Gtk.Paned.PanedChild w14 = ((global::Gtk.Paned.PanedChild)(this.vpaned2[this.vpaned3]));
-		w14.Resize = false;
-		w14.Shrink = false;
+		global::Gtk.Paned.PanedChild w16 = ((global::Gtk.Paned.PanedChild)(this.vpaned2[this.vpaned3]));
+		w16.Resize = false;
+		w16.Shrink = false;
 		this.Add(this.vpaned2);
 		if ((this.Child != null))
 		{

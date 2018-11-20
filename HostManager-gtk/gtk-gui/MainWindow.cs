@@ -65,7 +65,7 @@ public partial class MainWindow
 		this.AddAccelGroup(this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString("MainWindow");
-		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+		this.WindowPosition = ((global::Gtk.WindowPosition)(3));
 		// Container child MainWindow.Gtk.Container+ContainerChild
 		this.vpaned2 = new global::Gtk.VPaned();
 		this.vpaned2.CanFocus = true;
@@ -76,6 +76,7 @@ public partial class MainWindow
 		this.toolbar1 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget("/toolbar1")));
 		this.toolbar1.Name = "toolbar1";
 		this.toolbar1.ShowArrow = false;
+		this.toolbar1.ToolbarStyle = ((global::Gtk.ToolbarStyle)(0));
 		this.vpaned2.Add(this.toolbar1);
 		global::Gtk.Paned.PanedChild w2 = ((global::Gtk.Paned.PanedChild)(this.vpaned2[this.toolbar1]));
 		w2.Resize = false;
@@ -84,17 +85,18 @@ public partial class MainWindow
 		this.vpaned3 = new global::Gtk.VPaned();
 		this.vpaned3.CanFocus = true;
 		this.vpaned3.Name = "vpaned3";
-		this.vpaned3.Position = 426;
+		this.vpaned3.Position = 481;
 		// Container child vpaned3.Gtk.Paned+PanedChild
 		this.hpaned1 = new global::Gtk.HPaned();
 		this.hpaned1.CanFocus = true;
 		this.hpaned1.Name = "hpaned1";
-		this.hpaned1.Position = 129;
+		this.hpaned1.Position = 170;
 		// Container child hpaned1.Gtk.Paned+PanedChild
 		this.notebook3 = new global::Gtk.Notebook();
 		this.notebook3.CanFocus = true;
 		this.notebook3.Name = "notebook3";
-		this.notebook3.CurrentPage = 0;
+		this.notebook3.CurrentPage = 1;
+		this.notebook3.TabPos = ((global::Gtk.PositionType)(3));
 		// Container child notebook3.Gtk.Notebook+NotebookChild
 		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow();
 		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
@@ -108,7 +110,7 @@ public partial class MainWindow
 		// Notebook tab
 		this.label4 = new global::Gtk.Label();
 		this.label4.Name = "label4";
-		this.label4.LabelProp = global::Mono.Unix.Catalog.GetString("page1");
+		this.label4.LabelProp = global::Mono.Unix.Catalog.GetString("Host");
 		this.notebook3.SetTabLabel(this.GtkScrolledWindow, this.label4);
 		this.label4.ShowAll();
 		// Container child notebook3.Gtk.Notebook+NotebookChild
@@ -126,7 +128,7 @@ public partial class MainWindow
 		// Notebook tab
 		this.label6 = new global::Gtk.Label();
 		this.label6.Name = "label6";
-		this.label6.LabelProp = global::Mono.Unix.Catalog.GetString("page2");
+		this.label6.LabelProp = global::Mono.Unix.Catalog.GetString("Tag");
 		this.notebook3.SetTabLabel(this.GtkScrolledWindow1, this.label6);
 		this.label6.ShowAll();
 		this.hpaned1.Add(this.notebook3);
@@ -168,14 +170,18 @@ public partial class MainWindow
 		this.vpaned3.Add(this.statusbar1);
 		global::Gtk.Paned.PanedChild w13 = ((global::Gtk.Paned.PanedChild)(this.vpaned3[this.statusbar1]));
 		w13.Resize = false;
+		w13.Shrink = false;
 		this.vpaned2.Add(this.vpaned3);
+		global::Gtk.Paned.PanedChild w14 = ((global::Gtk.Paned.PanedChild)(this.vpaned2[this.vpaned3]));
+		w14.Resize = false;
+		w14.Shrink = false;
 		this.Add(this.vpaned2);
 		if ((this.Child != null))
 		{
 			this.Child.ShowAll();
 		}
-		this.DefaultWidth = 625;
-		this.DefaultHeight = 517;
+		this.DefaultWidth = 772;
+		this.DefaultHeight = 570;
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
 	}

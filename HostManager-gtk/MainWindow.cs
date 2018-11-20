@@ -54,7 +54,6 @@ public partial class MainWindow : Gtk.Window
     void InitHostTree(List<Host> hostList)
     {
         this.tvHost.Selection.Changed += (sender, e) => {
-            Console.WriteLine("SELECTION WAS CHANGED");
             Gtk.TreeIter selected;
             if (this.tvHost.Selection.GetSelected(out selected))
             {
@@ -67,16 +66,12 @@ public partial class MainWindow : Gtk.Window
 
     void OnHostNodeChanged(String HostIP)
     {
-        /*
-        m_CurrentHost = null;
-        if (tn.Nodes == null || tn.Nodes.Count == 0)
+        m_CurrentHost =FindByIP(HostIP);
+        if (m_CurrentHost!=null)
         {
-            //leaf
-            m_CurrentHost = tn.Tag as Host;
             NotifyMsg("当前主机：" + m_CurrentHost.Id);
         }
-        ucHostDetails1.UpdateData(m_CurrentHost, m_TagService.GetAllTags());
-*/
+        //ucHostDetails1.UpdateData(m_CurrentHost, m_TagService.GetAllTags());
     }
 
     void UpdateHostTree(List<Host> hostList)
@@ -100,10 +95,52 @@ public partial class MainWindow : Gtk.Window
 
         tree.AppendColumn(tvcHost);
         tree.Model = treestore;
+        tree.ExpandAll();
     }
 
     void InitTagTree(List<Host> hostList)
-    { }
+    {
+        this.tvTag.Selection.Changed += (sender, e) => {
+            Gtk.TreeIter selected;
+            if (this.tvHost.Selection.GetSelected(out selected))
+            {
+                OnHostNodeChanged(Convert.ToString(this.tvHost.Model.GetValue(selected, 0)));
+            }
+        };
+
+        UpdateTagTree(hostList);
+        NotifyMsg("主机分类初始化成功");
+    }
+
+    void UpdateTagTree(List<Host> hostList)
+    {
+        TreeView tree = this.tvTag;
+
+        TreeViewColumn tvcTag = new TreeViewColumn();
+        tvcTag.Title = "";
+
+        CellRendererText cell = new CellRendererText();
+        tvcTag.PackStart(cell, true);
+        tvcTag.AddAttribute(cell, "text", 0);
+
+        TreeStore treestore = new TreeStore(typeof(string), typeof(string));
+        Dictionary<string, List<Host>> DictTagHost = m_TagService.GetTagHosts(hostList);
+
+        //add to tree
+        TreeIter iter = treestore.AppendValues("主机");
+        foreach (KeyValuePair<String, List<Host>> kv in DictTagHost)
+        {
+            TreeIter iterTag = treestore.AppendValues(iter,kv.Key);
+            foreach (Host h in kv.Value)
+            {
+                treestore.AppendValues(iterTag, h.IP);
+            }
+        }
+
+        tree.AppendColumn(tvcTag);
+        tree.Model = treestore;
+        tree.ExpandRow(treestore.GetPath(iter),false);
+    }
 
     void InitDetailsPanel()
     { }
@@ -115,9 +152,12 @@ public partial class MainWindow : Gtk.Window
     { }
 
     void NotifyMsg(string msg)
-    {}
+    {
+        msg = msg == null ? "就绪" : msg;
+        statusbar1.Push(this.statusbar1.GetContextId("status"), msg);
+    }
 
-    Host FindByIP(string ip)
+        Host FindByIP(string ip)
     {
         foreach (Host host in m_HostList)
         {

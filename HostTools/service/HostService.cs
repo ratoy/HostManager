@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using HostManager.dao;
-using HostManager.entity;
-using HostManager.vo;
+using HostTools.dao;
+using HostTools.entity;
+using HostTools.vo;
 
-namespace HostManager.service
+namespace HostTools.service
 {
-    class HostService
+    public class HostService
     {
         HostRepository m_HostRepo = new HostRepository();
         HostTagRepository m_HostTagRepo = new HostTagRepository();

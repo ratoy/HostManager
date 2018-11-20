@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Data;
 
-namespace HostManager.dao
+namespace HostTools.dao
 {
     class HostRepository
     {
-        SQLiteOperation m_SqliteOpera = DbOperation.Instance.GetSqliteOpera();
+        IDbTools m_SqliteOpera = DbOperation.Instance.GetSqliteOpera();
 
-        internal Host Save(Host host)
+        public Host Save(Host host)
         {
             List<String> sqlList = new List<string>();
             StringBuilder sbuilder = new StringBuilder("insert into host(ip,port, name,user,passwd,rootpasswd,os,cpu,memory,disk,remark) values");
@@ -23,7 +23,7 @@ namespace HostManager.dao
             return GetHostByIP(host.IP);
         }
 
-        internal void DeleteById(int HostId)
+        public void DeleteById(int HostId)
         {
             m_SqliteOpera.DeleteData("delete from host where id=" + HostId);
         }
@@ -71,7 +71,7 @@ namespace HostManager.dao
             return host;
         }
 
-        internal List<Host> FindAll()
+        public List<Host> FindAll()
         {
             DataTable dtHost = m_SqliteOpera.Query("select * from host");
             List<Host> HostList = new List<Host>();
@@ -83,7 +83,7 @@ namespace HostManager.dao
             return HostList;
         }
 
-        internal void Update(int id, Host newHost)
+        public void Update(int id, Host newHost)
         {
             Host oldHost = GetHostById(id);
             if (oldHost == null)

@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using HostManager.entity;
+using HostTools.entity;
 using System.Data;
 
-namespace HostManager.dao
+namespace HostTools.dao
 {
     class HostTagRepository
     {
-        SQLiteOperation m_SqliteOpera = DbOperation.Instance.GetSqliteOpera();
+        IDbTools m_SqliteOpera = DbOperation.Instance.GetSqliteOpera();
 
-        internal void Save(List<HostTag> HostTagList)
+        public void Save(List<HostTag> HostTagList)
         {
             List<String> sqlList = new List<string>();
             String sqlBasicTag = "insert into host_tag(host_id,tag_id) values";
@@ -27,12 +27,12 @@ namespace HostManager.dao
             m_SqliteOpera.BatProcess(sqlList);
         }
 
-        internal void DeleteByHostId(int HostId)
+        public void DeleteByHostId(int HostId)
         {
             m_SqliteOpera.DeleteData("delete from host_tag where host_id=" + HostId);
         }
 
-        internal List<Tag> FindByHostId(int HostId)
+        public List<Tag> FindByHostId(int HostId)
         {
             DataTable dtTag = m_SqliteOpera.Query("select t.id as tag_id, t.name as tag_name from tag t, host_tag ht where ht.tag_id=t.id and ht.host_id=" + HostId);
             List<Tag> TagList = new List<Tag>();
@@ -46,7 +46,7 @@ namespace HostManager.dao
             return TagList;
         }
 
-        internal void DeleteByTagId(int tagId)
+        public void DeleteByTagId(int tagId)
         {
             m_SqliteOpera.DeleteData("delete from host_tag where tag_id=" + tagId);
         }

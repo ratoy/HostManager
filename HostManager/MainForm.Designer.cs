@@ -128,7 +128,7 @@ namespace HostManager
             // 
             // cmsHost
             // 
-            this.cmsHost.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.cmsHost.Font = new System.Drawing.Font("PingFang SC", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cmsHost.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiNew,
             this.tsmiDelete,
@@ -167,8 +167,8 @@ namespace HostManager
             // 
             // tsslStatus
             // 
-            this.tsslStatus.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tsslStatus.Name = "tsslStatus";
+            this.tsslStatus.Font = new System.Drawing.Font("PingFang SC", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            // tsslStatus.Name = "tsslStatus";
             this.tsslStatus.Size = new System.Drawing.Size(37, 20);
             this.tsslStatus.Text = "就绪";
             // 
@@ -263,7 +263,7 @@ namespace HostManager
             // ucHostDetails1
             // 
             this.ucHostDetails1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucHostDetails1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ucHostDetails1.Font = new System.Drawing.Font("PingFang SC", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ucHostDetails1.Location = new System.Drawing.Point(4, 5);
             this.ucHostDetails1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucHostDetails1.Name = "ucHostDetails1";
@@ -311,7 +311,7 @@ namespace HostManager
             this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
-            this.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("PingFang SC", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.Text = "主机管理";

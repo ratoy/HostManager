@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostManager", "HostManager\HostManager.csproj", "{08CF0D8A-A7CB-4CD2-8C2A-B6469F51364D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostTools", "HostTools\HostTools.csproj", "{3FB96D1A-F671-40BD-BC60-83EB0E0180B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +15,10 @@ Global
 		{08CF0D8A-A7CB-4CD2-8C2A-B6469F51364D}.Debug|x86.Build.0 = Debug|x86
 		{08CF0D8A-A7CB-4CD2-8C2A-B6469F51364D}.Release|x86.ActiveCfg = Release|x86
 		{08CF0D8A-A7CB-4CD2-8C2A-B6469F51364D}.Release|x86.Build.0 = Release|x86
+		{3FB96D1A-F671-40BD-BC60-83EB0E0180B4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3FB96D1A-F671-40BD-BC60-83EB0E0180B4}.Debug|x86.Build.0 = Debug|Any CPU
+		{3FB96D1A-F671-40BD-BC60-83EB0E0180B4}.Release|x86.ActiveCfg = Release|Any CPU
+		{3FB96D1A-F671-40BD-BC60-83EB0E0180B4}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

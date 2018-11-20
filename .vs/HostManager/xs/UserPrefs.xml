@@ -1,8 +1,52 @@
 ﻿<Properties StartupConfiguration="{08CF0D8A-A7CB-4CD2-8C2A-B6469F51364D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="HostManager/SqliteOperation.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HostManager/MainForm.cs">
     <Files>
+<<<<<<< HEAD
       <File FileName="HostManager/SqliteOperation.cs" Line="372" Column="18" />
     </Files>
+=======
+      <File FileName="HostManager/NewHostForm.cs" Line="9" Column="16" />
+      <File FileName="HostTools/entity/Host.cs" Line="1" Column="1" />
+      <File FileName="HostManager/MainForm.cs" Line="34" Column="47" />
+      <File FileName="HostTools/service/HostService.cs" Line="30" Column="8" />
+      <File FileName="HostManager/ucHostDetails.cs" Line="55" Column="45" />
+      <File FileName="HostTools/dao/HostRepository.cs" Line="11" Column="1" />
+      <File FileName="HostTools/service/TagService.cs" Line="41" Column="47" />
+      <File FileName="HostTools/DbOperation.cs" Line="11" Column="12" />
+      <File FileName="HostTools/service/DbService.cs" Line="3" Column="1" />
+      <File FileName="HostManager/SqliteOperation.cs" Line="26" Column="9" />
+      <File FileName="HostTools/IDbTools.cs" Line="18" Column="5" />
+      <File FileName="HostTools/dao/TagRepository.cs" Line="11" Column="1" />
+      <File FileName="HostTools/vo/HostTagVO.cs" Line="1" Column="1" />
+      <File FileName="HostTools/SshOperation.cs" Line="1" Column="1" />
+      <File FileName="HostManager/MainForm.Designer.cs" Line="54" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HostManager" expanded="True">
+            <Node name="HostManager" expanded="True">
+              <Node name="MainForm.cs" expanded="True" selected="True" />
+            </Node>
+            <Node name="HostTools" expanded="True">
+              <Node name="dao" expanded="True" />
+              <Node name="entity" expanded="True" />
+              <Node name="service" expanded="True" />
+              <Node name="vo" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State name="__root__">
+          <Node name="HostManager" expanded="True" selected="True" />
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+>>>>>>> mac
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HostManager.entity
+namespace HostTools.entity
 {
-    class HostTag
+    public class HostTag
     {
         public int Id { get; set; }
         public int HostId{ get; set; }

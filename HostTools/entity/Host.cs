@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HostManager
+namespace HostTools
 {
-    class Host
+    public class Host
     {
         public int Id { get; set; }
         public String IP { get; set; }

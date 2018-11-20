@@ -1,70 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
+using System.Text;
 using System.Data;
-using System.IO;
 using System.Threading;
 using Mono.Data.Sqlite;
-using Renci.SshNet;
-using HostTools;
 
-namespace HostManager
+namespace HostTools
 {
     /// <summary>
     /// 操作Sqilte数据库
     /// </summary>
-    sealed class SqliteOperation :IDbTools
+    class SQLiteOperation
     {
-        string m_DbFile = "host.db";
-        private static readonly Lazy<SqliteOperation> lazy =
-        new Lazy<SqliteOperation>(() => new SqliteOperation());
-        List<String> m_InitSqlList = new List<string>();
-
-        public static SqliteOperation Instance { get { return lazy.Value; } }
-
-        private SqliteOperation()
-        {
-            string assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            m_DbFile = System.IO.Path.Combine(assemblyFolder, m_DbFile);
-
-            InitDb(m_DbFile);
-            InitSql();
-            UpdateTables();
-        }
-        public String GetDbFile()
-        { return m_DbFile; }
-
-        void InitSql()
-        {
-            m_InitSqlList.Clear();
-            m_InitSqlList.Add("create table tag (id integer PRIMARY KEY  AUTOINCREMENT, name)");
-            m_InitSqlList.Add("create table host (id integer PRIMARY KEY  AUTOINCREMENT,ip,port, name,user,passwd,rootpasswd,os,cpu,memory,disks)");
-            m_InitSqlList.Add("create table host_tag (id integer PRIMARY KEY  AUTOINCREMENT, host_id, tag_id)");
-            m_InitSqlList.Add("create table parameters (id integer PRIMARY KEY  AUTOINCREMENT, sys_key, sys_value)");
-        }
-
-        void UpdateTables()
-        {
-            //get update flag
-            DataTable dt = Query("select sys_value from parameters where sys_key='update'");
-            if (dt != null && dt.Rows.Count != 0)
-            {
-                int flag = 0;
-                int.TryParse(Convert.ToString(dt.Rows[0][0]), out flag);
-                if (flag == 1)
-                {
-                    try
-                    {
-                        File.Delete(m_DbFile);
-                    }
-                    catch
-                    {
-                    }
-                    BatProcess(m_InitSqlList);
-                }
-            }
-        }
-
         string m_ConnectString = "";
         SqliteConnection m_Conn;
         SqliteDataAdapter m_DataAdapter;
@@ -85,7 +32,7 @@ namespace HostManager
         /// 构造sqlite对象
         /// </summary>
         /// <param name="SqliteDbName">包含路径和文件名</param>
-        void InitDb(string SqliteDbName)
+        public SQLiteOperation(string SqliteDbName)
         {
             if (!System.IO.File.Exists(SqliteDbName))
             {
@@ -99,7 +46,7 @@ namespace HostManager
         /// </summary>
         /// <param name="SqliteDbName">包含路径和文件名</param>
         /// <param name="Passwd">密码</param>
-        void InitDb(string SqliteDbName, string Passwd)
+        public SQLiteOperation(string SqliteDbName, string Passwd)
         {
             if (!System.IO.File.Exists(SqliteDbName))
             {
@@ -429,40 +376,5 @@ namespace HostManager
         {
             //System.Diagnostics.Debug.Print("操作sqlite: " + FunctionName);
         }
-
-        public bool BakDb(Host FileServerHost)
-        {
-            string old_FileName = m_DbFile;
-            string dbFile_ext = Path.GetExtension(old_FileName);
-            string new_FileName = Path.GetFileNameWithoutExtension(old_FileName) +
-                                    DateTime.Now.ToString("yy-MM-dd_HH-mm-ss") + dbFile_ext;
-
-            System.IO.File.Move(old_FileName, new_FileName);
-            using (var client = new ScpClient(FileServerHost.IP, FileServerHost.User, FileServerHost.Passwd))
-            {
-                client.Connect();
-                client.Download("/app/fileserver/www/" + Path.GetFileName(old_FileName), new FileInfo(old_FileName));
-            }
-            return true;
-        }
-
-        public bool RecoverDb(Host FileServerHost)
-        {
-            string old_FileName = m_DbFile;
-            string dbFile_ext = Path.GetExtension(old_FileName);
-            string new_FileName = Path.GetFileNameWithoutExtension(old_FileName) +
-                                    DateTime.Now.ToString("yy-MM-dd_HH-mm-ss") + dbFile_ext;
-
-            System.IO.File.Copy(old_FileName, new_FileName);
-
-            using (var client = new ScpClient(FileServerHost.IP, FileServerHost.User, FileServerHost.Passwd))
-            {
-                client.Connect();
-                client.Upload(new FileInfo(old_FileName), "/app/fileserver/www/" + Path.GetFileName(old_FileName));
-                client.Upload(new FileInfo(new_FileName), "/app/fileserver/www/" + Path.GetFileName(new_FileName));
-            }
-            return true;
-        }
-
     }
 }

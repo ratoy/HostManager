@@ -6,7 +6,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using HostManager.service;
+using HostTools;
+using HostTools.entity;
+using HostTools.service;
 
 namespace HostManager
 {
@@ -27,7 +29,7 @@ namespace HostManager
         List<ComboBox> m_CmbList = null;
         List<String> m_OSList = null;
 
-        internal Host GetHost()
+        public Host GetHost()
         {
             //handle new tags
             //get new tags
@@ -50,7 +52,7 @@ namespace HostManager
 
         List<Tag> GetNewTagList()
         {
-            List<Tag> NewTagList = new List<HostManager.Tag>();
+            List<Tag> NewTagList = new List<Tag>();
             List<String> currentTags = GetCurrentTagNames();
 
             foreach (String tagName in currentTags)
@@ -165,7 +167,7 @@ namespace HostManager
             }
         }
 
-        internal void UpdateData(Host host, List<Tag> tagList)
+        public void UpdateData(Host host, List<Tag> tagList)
         {
             ClearData();
             if (host == null)

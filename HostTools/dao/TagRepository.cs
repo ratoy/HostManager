@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Data;
 
-namespace HostManager.dao
+namespace HostTools.dao
 {
     class TagRepository
     {
-        SQLiteOperation m_SqliteOpera = DbOperation.Instance.GetSqliteOpera();
+        IDbTools m_SqliteOpera = DbOperation.Instance.GetSqliteOpera();
 
-        internal Tag FindByTagName(String tagName)
+        public Tag FindByTagName(String tagName)
         {
             DataTable dt = m_SqliteOpera.Query("select * from tag where name='" + tagName + "'");
 
@@ -30,7 +30,7 @@ namespace HostManager.dao
             return tag;
         }
 
-        internal void Save(Tag tag)
+        public void Save(Tag tag)
         {
             Tag oldTag = FindByTagName(tag.Name);
             if (oldTag == null)
@@ -39,12 +39,12 @@ namespace HostManager.dao
             }
         }
 
-        internal void DeleteByTagName(string tagName)
+        public void DeleteByTagName(string tagName)
         {
             m_SqliteOpera.DeleteData("delete from tag where name='" + tagName + "'");
         }
 
-        internal List<Tag> FindAll()
+        public List<Tag> FindAll()
         {
             DataTable dt = m_SqliteOpera.Query("select * from tag order by name");
 
@@ -56,7 +56,7 @@ namespace HostManager.dao
             return tagList;
         }
 
-        internal void Save(List<Tag> NewTagList)
+        public void Save(List<Tag> NewTagList)
         {
             List<String> sqlList = new List<string>();
             foreach (Tag tag in NewTagList)

@@ -35,6 +35,7 @@ public partial class MainWindow : Gtk.Window
         m_HostService = new HostService();
         m_TagService = new TagService();
 
+        this.notebook1.Page = 0;
         m_HostList = m_HostService.GetAllHosts();
         //init host tree
         InitHostTree(m_HostList);
@@ -71,7 +72,7 @@ public partial class MainWindow : Gtk.Window
         {
             NotifyMsg("当前主机：" + m_CurrentHost.Id);
         }
-        //ucHostDetails1.UpdateData(m_CurrentHost, m_TagService.GetAllTags());
+        widget1.UpdateData(m_CurrentHost, m_TagService.GetAllTags());
     }
 
     void UpdateHostTree(List<Host> hostList)

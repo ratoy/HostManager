@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{3643FB24-B28C-4861-AB44-BCDABFA2E93E}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="HostManager-gtk/Widget.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HostManager-gtk/MainWindow.cs">
     <Files>
-      <File FileName="HostManager-gtk/Widget.cs" Line="340" Column="26" />
+      <File FileName="HostManager-gtk/Widget.cs" Line="14" Column="34" />
       <File FileName="HostManager/ucHostDetails.Designer.cs" Line="188" Column="9" />
-      <File FileName="HostManager-gtk/MainWindow.cs" Line="68" Column="5" />
+      <File FileName="HostManager-gtk/MainWindow.cs" Line="32" Column="5" />
       <File FileName="HostManager/ucHostDetails.cs" Line="114" Column="32" />
       <File FileName="HostManager-gtk/gtk-gui/MainWindow.cs" Line="189" Column="3" />
     </Files>
@@ -15,12 +15,11 @@
               <Node name="MainForm.cs" expanded="True" />
               <Node name="ucHostDetails.cs" expanded="True" />
             </Node>
-            <Node name="HostManager-gtk" expanded="True">
+            <Node name="HostManager-gtk" expanded="True" selected="True">
               <Node name="UserInterface" expanded="True">
                 <Node name="MainWindow" expanded="True" />
               </Node>
               <Node name="Properties" expanded="True" />
-              <Node name="Widget.cs" selected="True" />
             </Node>
           </Node>
         </State>
